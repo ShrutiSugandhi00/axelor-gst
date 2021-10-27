@@ -6,7 +6,7 @@ buildscript {
     maven { url 'https://plugins.gradle.org/m2/' }
     maven { url 'https://repository.axelor.com/nexus/repository/maven-public/' }
   }
-  ext.platformVersion = '5.4.+'
+  ext.platformVersion = '5.4.0'
   ext.appVersion = '5.4.0'
   repositories repos
   dependencies {
@@ -25,11 +25,11 @@ apply plugin: 'com.axelor.app'
 apply from: './gradle/style.gradle'
 
 axelor {
-  title = "Axelor :: DEMO"
+  title = "Axelor :: GST"
 }
 
 allprojects {
-  apply plugin: 'idea';
+
   apply plugin: 'eclipse'
 
   group = "com.axelor"
@@ -40,17 +40,9 @@ allprojects {
 }
 
 dependencies {
-  // add module dependencies
-  implementation project(":modules:demo-contact")
-  implementation project(":modules:demo-sale")
-  implementation project(":modules:demo-project")
-  implementation project(":modules:demo-custom")
-}
+ implementation project(":modules:axelor-gst")
+  }
 
 wrapper {
   gradleVersion = "5.6.4"
-}
-
-war {
-  archiveFileName = 'open-platfrom-demo.war'
 }
