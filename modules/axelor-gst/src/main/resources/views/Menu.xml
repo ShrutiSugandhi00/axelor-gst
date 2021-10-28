@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+	<menuitem title="Company" name="company-root" action="sction.company.view" />
+	<action-view name="sction.company.view" title="Company"
+		model="com.axelor.gst.db.Company">
+		<view type="form" name="company-form" />
+		<view type="grid" name="company-grid" />
+	</action-view>
+<menuitem title="Product" name="product-root" action="action.product.view" />
+	<action-view name="action.product.view" title="Product"
+		model="com.axelor.gst.db.Product">
+		<view type="form" name="product-form" />
+		<view type="grid" name="product-grid" />
+	</action-view>
+
+</object-views>

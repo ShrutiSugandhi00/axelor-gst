@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+  <module package="com.axelor.gst.db" name="gst" />
+  <entity name="Company">
+    <string name="name" title="Name" required="true" />
+    <many-to-one ref="com.axelor.meta.db.MetaFile" name="logo"
+      title="Logo" />
+    <one-to-many ref="com.axelor.gst.db.Contact" name="contactList"
+      title="Contact" />
+    <string name="gstin" title="GSTIN" min="15" max="15" />
+    <one-to-many ref="com.axelor.gst.db.BankAccount" name="bankDetailsList"
+      title="Bank Details" />
+    <many-to-one ref="com.axelor.gst.db.Address" name="address"
+      title="Address" />
+
+
+  </entity>
+</domain-models>
