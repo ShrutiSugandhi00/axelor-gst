@@ -18,7 +18,7 @@
       <field name="bank" />
       <field name="accountNo" />
       <field name="ifsc" />
-      <field name="type" />
+      <field name="type" selection="gst.bankAccount.type.select"/>
       <field name="address" />
 
     </panel>

@@ -15,7 +15,7 @@
 
 	<form model="com.axelor.gst.db.Address" title="Address" name="address-form">
 		<panel>
-			<field name="type" />
+			<field name="type" selection="gst.address.type.select" />
 			<field name="line1" />
 			<field name="line2" />
 			<field name="city" />
