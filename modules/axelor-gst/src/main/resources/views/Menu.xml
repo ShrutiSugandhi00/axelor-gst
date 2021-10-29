@@ -8,13 +8,15 @@
 	<menuitem title="Party" name="party-root" />
 	<menuitem title="Party" name="party-root-party-child" parent="party-root"
 		action="action.gst.view.party" />
-	<action-view name="action.gst.view.party" title="Party">
+	<action-view name="action.gst.view.party" title="Party"
+		model="com.axelor.gst.db.Party">
 		<view type="grid" name="party-grid" />
 		<view type="form" name="party-form" />
 	</action-view>
 	<menuitem title="Contact" name="party-root-contact-child"
 		parent="party-root" action="action.gst.view.contact" />
-	<action-view name="action.gst.view.contact" title="Contact">
+	<action-view name="action.gst.view.contact" title="Contact"
+		model="com.axelor.gst.db.Contact">
 		<view type="grid" name="contact-grid" />
 		<view type="form" name="contact-form" />
 	</action-view>
@@ -23,30 +25,40 @@
 
 	<menuitem title="Address" name="configuration-root-address-child"
 		parent="party-root-configuration-child" action="action.gst.view.address" />
-	<action-view name="action.gst.view.address" title="Address">
+	<action-view name="action.gst.view.address" title="Address"
+		model="com.axelor.gst.db.Address">
 		<view type="grid" name="address-grid" />
 		<view type="form" name="address-form" />
 	</action-view>
 	<menuitem title="City" name="configuration-root-city-child"
 		parent="party-root-configuration-child" action="action.gst.view.city" />
-	<action-view name="action.gst.view.city" title="City">
+	<action-view name="action.gst.view.city" title="City"
+		model="com.axelor.gst.db.City">
 		<view type="grid" name="city-grid" />
 		<view type="form" name="city-form" />
 	</action-view>
 	<menuitem title="State" name="configuration-root-state-child"
 		parent="party-root-configuration-child" action="action.gst.view.state" />
-	<action-view name="action.gst.view.state" title="State">
+	<action-view name="action.gst.view.state" title="State"
+		model="com.axelor.gst.db.State">
 		<view type="grid" name="state-grid" />
 		<view type="form" name="state-form" />
 	</action-view>
 	<menuitem title="Country" name="configuration-root-country-child"
 		parent="party-root-configuration-child" action="action.gst.view.country" />
-	<action-view name="action.gst.view.country" title="Country">
+	<action-view name="action.gst.view.country" title="Country"
+		model="com.axelor.gst.db.Country">
 		<view type="grid" name="country-grid" />
 		<view type="form" name="country-form" />
 	</action-view>
 
+	<menuitem title="country" name="test-country" action="action.test.country" />
+	<action-view name="action.test.country" title="country"
+		model="com.axelor.gst.db.Country">
+		<view type="grid" name="country-grid" />
+		<view type="form" name="country-form" />
 
+	</action-view>
 
 
 
