@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+  <grid model="com.axelor.gst.db.Invoice" title="Invoice" name="invoice-grid">
+    <field name="status" />
+    <field name="company" />
+    <field name="reference" />
+    <field name="dateInvoice" />
+    <field name="priority" />
+    <field name="party" />
+    <field name="partyContact" />
+    <field name="invoiceAddress" />
+    <field name="shippngAddress" />
+    <field name="isInvoiceAddress" />
+    <field name="netAmount" />
+    <field name="netIgst" />
+    <field name="netCgst" />
+    <field name="netSgst" />
+    <field name="grossAmount" />
+
+  </grid>
+
+  <form model="com.axelor.gst.db.Invoice" title="Invoice" name="invoice-form">
+    <panel>
+      <field name="status" />
+      <field name="company" />
+      <field name="reference" />
+      <field name="dateInvoice" />
+      <field name="priority" />
+      <field name="party" />
+      <field name="partyContact" />
+      <field name="invoiceAddress" />
+      <field name="shippngAddress" />
+      <field name="isInvoiceAddress" />
+      <field name="netAmount" />
+      <field name="netIgst" />
+      <field name="netCgst" />
+      <field name="netSgst" />
+      <field name="grossAmount" />
+      <panel-related field="invoiceLineList" />
+    </panel>
+
+
+
+
+  </form>
+</object-views>

@@ -2,21 +2,19 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-  <grid model="com.axelor.gst.db.Company" title="Company" name="company-grid">
+  <grid model="com.axelor.gst.db.City" title="City" name="city-grid">
     <field name="name" />
-    <field name="gstin" />
-      <field name="address" />
+    <field name="state" />
+    <field name="country" />
 
   </grid>
 
-  <form model="com.axelor.gst.db.Company" title="Company" name="company-form">
+  <form model="com.axelor.gst.db.City" title="City" name="city-form">
     <panel>
       <field name="name" />
-      <field name="logo" widget="image"/>
-      <panel-related field="contactList" />
-      <field name="gstin" />
-      <panel-related field="bankDetailsList" />
-      <field name="address" />
+      <field name="state" />
+      <field name="country" />
+
     </panel>
 
 
