@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-	<grid model="com.axelor.gst.db.ProductCategory" title="ProductCategory"
-		name="productCategory-grid">
-		<field name="name" />
-		<field name="code" />
-		<field name="gstRate" />
-	</grid>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+  <grid model="com.axelor.gst.db.ProductCategory" title="ProductCategory"
+    name="productCategory-grid">
+    <field name="name" />
+    <field name="code" />
+    <field name="gstRate" />
+  </grid>
 
-	<form model="com.axelor.gst.db.ProductCategory" title="ProductCategory"
-		name="productCategory-form">
-		<panel>
-			<field name="name" />
-			<field name="code" />
-			<field name="gstRate" />
+  <form model="com.axelor.gst.db.ProductCategory" title="ProductCategory"
+    name="productCategory-form">
+    <panel>
+      <field name="name" />
+      <field name="code" />
+      <field name="gstRate" />
 
-		</panel>
-
-
+    </panel>
 
 
-	</form>
+
+
+  </form>
 </object-views>

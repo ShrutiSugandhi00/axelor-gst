@@ -3,11 +3,12 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
   <module package="com.axelor.gst.db" name="gst" />
-  <entity name="BankAccount">
-    <string name="bank" title="Bank" required="true" />
-    <string name="accountNo" title="Account No" required="true" />
-    <string name="ifsc" title="IFSC" required="true" />
-    <string name="type" title="Type" default="Current" />
-    <string name="address" title="Address" />
+  <entity name="Sequence">
+    <string name="prefix" title="Prefix" required="true" />
+    <string name="suffix" title="Suffix" />
+    <integer name="padding" title="Padding" min="1" max="10" />
+    <string name="nextNumber" title="Next Number" />
+    <many-to-one ref="com.axelor.meta.db.MetaModel" name="model"
+      title="Model" required="true" />
   </entity>
 </domain-models>
