@@ -15,31 +15,56 @@
 		<field name="netCgst" />
 		<field name="netSgst" />
 		<field name="grossAmount" />
-		<field name="invoice" />
+
 	</grid>
 
 	<form model="com.axelor.gst.db.InvoiceLine" title="InvoiceLine"
 		name="invoiceLine-form">
 		<panel>
-			<field name="product" onChange="action-gst-method-net-amount" />
+			<field name="product" onChange="action-gst-attrs-gst-rate" />
 			<field name="hsbn" />
 			<field name="item" />
-			<field name="qty" onChange="action-gst-method-net-amount" />
-			<field name="price" onChange="action-gst-method-net-amount" />
+			<field name="qty" onChange="action-gst-group" />
+			<field name="price" onChange="action-gst-group" />
 			<field name="netAmount" />
 			<field name="gstRate" />
 			<field name="netIgst" />
 			<field name="netCgst" />
 			<field name="netSgst" />
 			<field name="grossAmount" />
-			<field name="invoice" />
+
 		</panel>
 	</form>
+
+
+	<action-group name="action-gst-group">
+		<action name="action-gst-method-net-amount" />
+		<action name="action-gst-method-net-igst" />
+		<action name="action-gst-method-net-sgst" />
+		<action name="action-gst-method-net-cgst" />
+	</action-group>
+
 	<action-method name="action-gst-method-net-amount" model="com.axelor.gst.db.InvoiceLine">
 		<call class="com.axelor.gst.web.GstController" method="netAmount" />
 	</action-method>
+
 	<action-attrs name="action-gst-attrs-gst-rate" model="com.axelor.gst.db.InvoiceLine">
-	
+		<attribute name="value" for="gstRate" expr="eval:product.category.gstRate" />
 	</action-attrs>
+
+	<action-method name="action-gst-method-net-igst" model="com.axelor.gst.db.InvoiceLine">
+		<call class="com.axelor.gst.web.GstController" method="netIgst" />
+	</action-method>
+	
+	<action-method name="action-gst-method-net-sgst" model="com.axelor.gst.db.InvoiceLine">
+		<call class="com.axelor.gst.web.GstController" method="netSgst" />
+	</action-method>
+	
+	<action-method name="action-gst-method-net-cgst" model="com.axelor.gst.db.InvoiceLine">
+		<call class="com.axelor.gst.web.GstController" method="netCgst" />
+	</action-method>
+
+
+
 
 </object-views>

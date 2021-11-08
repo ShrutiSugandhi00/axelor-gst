@@ -13,10 +13,11 @@
 
 	</grid>
 
-	<form model="com.axelor.gst.db.Product" title="Product" name="product-form">
+	<form model="com.axelor.gst.db.Product" title="Product" name="product-form" width="large">
 		<panel>
 			<field name="name" />
 			<field name="logo" />
+			<field name="code" />
 			<field name="hsbn" />
 			<field name="category" onChange="action-product-category-gst-rate" />
 			<field name="salePrice" />
