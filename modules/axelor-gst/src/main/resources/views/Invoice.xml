@@ -3,7 +3,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 	<grid model="com.axelor.gst.db.Invoice" title="Invoice" name="invoice-grid">
-		<field name="status" />
 		<field name="company" />
 		<field name="reference" />
 		<field name="dateInvoice" />
@@ -24,13 +23,15 @@
 	<form model="com.axelor.gst.db.Invoice" title="Invoice" name="invoice-form"
 		onNew="action-invoice-attrs-date-invoice" editable="true" width="large">
 		<panel>
-			<field name="status" selection="gst.invoice.status.select"
-				widget="NavSelect" />
+			<field name="status" widget="NavSelect" selection="gst.invoice.status.select"
+				showTitle="false" />
+			<button onClick="save,status-on-click" name="status-btn"
+				title="Validate" showIf="status==0" />
 			<field name="company" />
 			<field name="reference" />
 			<field name="dateInvoice" />
 			<field name="priority" />
-			<field name="party"  onChange="action-invoice-attrs-party"/>
+			<field name="party" onChange="action-invoice-attrs-party" />
 			<field name="partyContact" />
 			<field name="invoiceAddress" />
 			<field name="shippngAddress" />
@@ -40,7 +41,7 @@
 			<field name="netCgst" />
 			<field name="netSgst" />
 			<field name="grossAmount" />
-			<panel-related field="invoiceLineList" onChange="action-invoice-attrs-net-amount"/>
+			<panel-related field="invoiceLineList" onChange="compute-invoice" />
 		</panel>
 	</form>
 
@@ -52,30 +53,37 @@
 		<field name="dateInvoice" />
 		<field name="priority" />
 		<template><![CDATA[
-		<div>
-		<h4>{{status}}</h4>
-		<h4>{{company}}</h4>
-		<h4>{{reference}}</h4>
-		<h4>{{dateInvoice}}</h4>
-		<h4>{{priority}}</h4>
-		</div>
-		]]>
-		</template>
+    <div>
+    <h4>{{status}}</h4>
+    <h4>{{company}}</h4>
+    <h4>{{reference}}</h4>
+    <h4>{{dateInvoice}}</h4>
+    <h4>{{priority}}</h4>
+    </div>
+    ]]>
+    </template>
 	</kanban>
 
-	<action-attrs name="action-invoice-attrs-date-invoice"
-		model="com.axelor.gst.db.Invoice">
+	<action-attrs name="action-invoice-date-invoice" model="com.axelor.gst.db.Invoice">
 		<attribute name="value" for="dateInvoice" expr="eval:__date__" />
 	</action-attrs>
-	
+
 	<action-attrs name="action-invoice-attrs-party" model="com.axelor.gst.db.Invoice">
 		<attribute name="value" for="party.partyContact.primaryPhone"
 			expr="eval:party.contactList.primaryPhone" />
 	</action-attrs>
-	
-	<action-attrs name="action-invoice-attrs-net-amount"
+
+	<action-method name="action-ivoice-invoice-address"
 		model="com.axelor.gst.db.Invoice">
-		<attribute name="value" for="netAmount" expr="eval:invoiceLineList.netAmount[0]" />
-	</action-attrs>
+		 <call class="" method=""/>
+	</action-method>
+
+
+	<action-method name="compute-invoice" model="com.axelor.gst.db.Invoice">
+		<call class="com.axelor.gst.web.GstController" method="computeInvoice" />
+	</action-method>
+	<action-record name="status-on-click" model="com.axelor.gst.db.Invoice">
+		<field name="status" expr="1" />
+	</action-record>
 
 </object-views>

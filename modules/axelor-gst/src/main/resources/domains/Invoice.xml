@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
   <module package="com.axelor.gst.db" name="gst" />
   <entity name="Invoice">
-    <string name="status" title="Status" readonly="true" />
+    <string name="status" title="Status" selection="gst.invoice.status.select" />
     <many-to-one ref="com.axelor.gst.db.Company" name="company"
       title="Company" required="true" />
     <string name="reference" title="Reference" readonly="true" />

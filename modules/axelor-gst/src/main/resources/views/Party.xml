@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-	<grid model="com.axelor.gst.db.Party" title="Party" name="party-grid">
-		<field name="reference" />
-		<field name="name" />
-		<field name="type" />
-		<field name="isCustomer" />
-		<field name="isSupplier" />
-		<field name="gstin" />
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+  <grid model="com.axelor.gst.db.Party" title="Party" name="party-grid">
+    <field name="reference" />
+    <field name="name" />
+    <field name="type" />
+    <field name="isCustomer" />
+    <field name="isSupplier" />
+    <field name="gstin" />
 
-	</grid>
+  </grid>
 
-	<form model="com.axelor.gst.db.Party" title="Party" name="party-form"
-		 width="large">
-		<panel>
-			<field name="reference" />
-			<field name="name" />
-			<field name="type" selection="gst.party.type.select" onChange="action.party.record.type"/>
-			<field name="isCustomer" />
-			<field name="isSupplier" />
-			<field name="gstin" />
-			<panel-related field="contactList" />
-			<panel-related field="addressList" />
+  <form model="com.axelor.gst.db.Party" title="Party" name="party-form"
+     width="large">
+    <panel>
+      <field name="reference" />
+      <field name="name" />
+      <field name="type" selection="gst.party.type.select" onChange="action.party.record.type"/>
+      <field name="isCustomer" />
+      <field name="isSupplier" />
+      <field name="gstin" />
+      <panel-related field="contactList" />
+      <panel-related field="addressList" />
 
-		</panel>
-	</form>
+    </panel>
+  </form>
 
-	<cards name="party-card" model="com.axelor.gst.db.Party" title="Party">
-		<field name="reference" />
-		<field name="name" />
-		<field name="type" />
-		<field name="isCustomer" />
-		<field name="isSupplier" />
-		<field name="gstin" />
-		<field name="contactList"/>
-		<template>
-	         <![CDATA[
-			        <div class="span12 card-image"> 
-			           <strong>{{reference}}</strong><br>
-			           <strong>{{name}}</strong><br>
-			           <strong>{{type}}</strong><br>
-			           <strong>{{isCustomer}}</strong><br>
-			           <strong>{{isSupplier}}</strong><br>
-			           <strong>{{gstin}}</strong>
-			           <strong>{{contactList.getName[0]}}</strong>
-			           
-			           </div>
-			          ]]>
-			</template>
+  <cards name="party-card" model="com.axelor.gst.db.Party" title="Party">
+    <field name="reference" />
+    <field name="name" />
+    <field name="type" />
+    <field name="isCustomer" />
+    <field name="isSupplier" />
+    <field name="gstin" />
+    <field name="contactList"/>
+    <template>
+           <![CDATA[
+              <div class="span12 card-image">
+                 <strong>{{reference}}</strong><br>
+                 <strong>{{name}}</strong><br>
+                 <strong>{{type}}</strong><br>
+                 <strong>{{isCustomer}}</strong><br>
+                 <strong>{{isSupplier}}</strong><br>
+                 <strong>{{gstin}}</strong>
+                 <strong>{{contactList.getName[0]}}</strong>
+
+                 </div>
+                ]]>
+      </template>
 
 
-	</cards>
+  </cards>
 
-	<action-record name="action.party.record.type" model="com.axelor.gst.db.Party">
-		<field name="type" expr="eval:1" />
-	</action-record>
+  <action-record name="action.party.record.type" model="com.axelor.gst.db.Party">
+    <field name="type" expr="eval:1" />
+  </action-record>
 </object-views>
