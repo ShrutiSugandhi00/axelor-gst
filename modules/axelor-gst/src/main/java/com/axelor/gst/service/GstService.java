@@ -5,7 +5,7 @@ import com.axelor.gst.db.InvoiceLine;
 
 public interface GstService {
 
-	public InvoiceLine computeInvoiceLine(InvoiceLine invoiceLine, Boolean b);
+	public InvoiceLine computeInvoiceLine(InvoiceLine invoiceLine, Boolean isStateDiff);
 
 	public Boolean checkState(Invoice invoice);
 
@@ -13,4 +13,7 @@ public interface GstService {
 
 	public Invoice addInvoiceAddress(Invoice invoice);
 
+	public Boolean checkShippingAddress(Invoice invoice);
+
+	public Invoice addShippingAddress(Invoice invoice,Boolean isInvoiceAdrs);
 }

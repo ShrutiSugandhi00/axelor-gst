@@ -12,11 +12,11 @@
 		<field name="item" />
 		<field name="qty" />
 		<field name="price" />
-		<field name="netAmount" />
+		<field name="amount" />
 		<field name="gstRate" />
-		<field name="netIgst" />
-		<field name="netCgst" />
-		<field name="netSgst" />
+		<field name="igst" />
+		<field name="cgst" />
+		<field name="sgst" />
 		<field name="grossAmount" />
 
 	</grid>
@@ -25,20 +25,23 @@
 
 	<form model="com.axelor.gst.db.InvoiceLine" title="InvoiceLine"
 		name="invoiceLine-form">
-		<panel>
+		<panel colSpan="12">
 			<field name="product" onChange="action-gst-attrs-gst-rate,set-item-name" />
+		</panel>
+		<panel>
 			<field name="hsbn" />
 			<field name="item" />
 			<field name="qty" />
-			<field name="price" onChange="save,compute-invoice-line" />
-			<field name="netAmount" />
+			<field name="price" onChange="compute-invoice-line" />
+		</panel>
+
+		<panel>
+			<field name="amount" />
 			<field name="gstRate" />
-			<field name="netIgst" />
-			<field name="netCgst" />
-			<field name="netSgst" />
+			<field name="igst" />
+			<field name="cgst" />
+			<field name="sgst" />
 			<field name="grossAmount" />
-
-
 		</panel>
 	</form>
 
