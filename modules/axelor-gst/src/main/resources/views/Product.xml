@@ -14,7 +14,7 @@
   </grid>
 
   <form model="com.axelor.gst.db.Product" title="Product" name="product-form" width="large">
-    <panel>
+    <panel colSpan="12">
       <field name="name" />
       <field name="logo" />
       <field name="code" />

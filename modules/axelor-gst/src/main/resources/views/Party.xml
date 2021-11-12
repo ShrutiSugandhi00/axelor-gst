@@ -13,15 +13,19 @@
   </grid>
 
   <form model="com.axelor.gst.db.Party" title="Party" name="party-form"
-     width="large">
-    <panel>
+    width="large" onSave="get-reference">
+    <panel colSpan="12">
       <field name="reference" />
       <field name="name" />
-      <field name="type" selection="gst.party.type.select" onChange="action.party.record.type"/>
+      <field name="type" selection="gst.party.type.select" onChange="action.party.record.type" />
       <field name="isCustomer" />
       <field name="isSupplier" />
       <field name="gstin" />
+    </panel>
+    <panel colSpan="12">
       <panel-related field="contactList" />
+    </panel>
+    <panel colSpan="12">
       <panel-related field="addressList" />
 
     </panel>
@@ -34,7 +38,7 @@
     <field name="isCustomer" />
     <field name="isSupplier" />
     <field name="gstin" />
-    <field name="contactList"/>
+    <field name="contactList" />
     <template>
            <![CDATA[
               <div class="span12 card-image">
@@ -53,6 +57,9 @@
 
   </cards>
 
+  <action-method name="get-reference" model="com.axelor.gst.db.Party">
+    <call class="com.axelor.gst.web.GstController" method="getReference" />
+  </action-method>
   <action-record name="action.party.record.type" model="com.axelor.gst.db.Party">
     <field name="type" expr="eval:1" />
   </action-record>

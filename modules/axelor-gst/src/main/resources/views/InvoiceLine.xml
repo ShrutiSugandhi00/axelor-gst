@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 
 
 
-	<grid model="com.axelor.gst.db.InvoiceLine" title="InvoiceLine"
-		name="invoiceLine-grid">
-		<field name="product" />
-		<field name="hsbn" />
-		<field name="item" />
-		<field name="qty" />
-		<field name="price" />
-		<field name="amount" />
-		<field name="gstRate" />
-		<field name="igst" />
-		<field name="cgst" />
-		<field name="sgst" />
-		<field name="grossAmount" />
+  <grid model="com.axelor.gst.db.InvoiceLine" title="InvoiceLine"
+    name="invoiceLine-grid">
+    <field name="product" />
+    <field name="hsbn" />
+    <field name="item" />
+    <field name="qty" />
+    <field name="price" />
+    <field name="amount" />
+    <field name="gstRate" />
+    <field name="igst" />
+    <field name="cgst" />
+    <field name="sgst" />
+    <field name="grossAmount" />
 
-	</grid>
-
-
-
-	<form model="com.axelor.gst.db.InvoiceLine" title="InvoiceLine"
-		name="invoiceLine-form">
-		<panel colSpan="12">
-			<field name="product" onChange="action-gst-attrs-gst-rate,set-item-name" />
-		</panel>
-		<panel>
-			<field name="hsbn" />
-			<field name="item" />
-			<field name="qty" />
-			<field name="price" onChange="compute-invoice-line" />
-		</panel>
-
-		<panel>
-			<field name="amount" />
-			<field name="gstRate" />
-			<field name="igst" />
-			<field name="cgst" />
-			<field name="sgst" />
-			<field name="grossAmount" />
-		</panel>
-	</form>
+  </grid>
 
 
 
+  <form model="com.axelor.gst.db.InvoiceLine" title="InvoiceLine"
+    name="invoiceLine-form">
+    <panel colSpan="12">
+      <field name="product" onChange="action-gst-attrs-gst-rate,set-item-name" />
+    </panel>
+    <panel>
+      <field name="hsbn" />
+      <field name="item" />
+      <field name="qty" />
+      <field name="price" onChange="compute-invoice-line" />
+    </panel>
 
-	<action-method name="compute-invoice-line" model="com.axelor.gst.db.InvoiceLine">
-		<call class="com.axelor.gst.web.GstController" method="computeInvoiceLine" />
-	</action-method>
-	<action-attrs name="set-item-name" model="com.axelor.gst.db.InvoiceLine">
-		<attribute name="value" for="item" expr="eval:product.name+product.code" />
-	</action-attrs>
+    <panel>
+      <field name="amount" />
+      <field name="gstRate" />
+      <field name="igst" />
+      <field name="cgst" />
+      <field name="sgst" />
+      <field name="grossAmount" />
+    </panel>
+  </form>
 
-	<action-attrs name="action-gst-attrs-gst-rate" model="com.axelor.gst.db.InvoiceLine">
-		<attribute name="value" for="gstRate" expr="eval:product.category.gstRate" />
-	</action-attrs>
+
+
+
+  <action-method name="compute-invoice-line" model="com.axelor.gst.db.InvoiceLine">
+    <call class="com.axelor.gst.web.GstController" method="computeInvoiceLine" />
+  </action-method>
+  <action-attrs name="set-item-name" model="com.axelor.gst.db.InvoiceLine">
+    <attribute name="value" for="item" expr="eval:product.name+product.code" />
+  </action-attrs>
+
+  <action-attrs name="action-gst-attrs-gst-rate" model="com.axelor.gst.db.InvoiceLine">
+    <attribute name="value" for="gstRate" expr="eval:product.category.gstRate" />
+  </action-attrs>
 
 
 

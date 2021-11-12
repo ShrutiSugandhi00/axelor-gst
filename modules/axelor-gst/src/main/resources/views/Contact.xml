@@ -11,8 +11,8 @@
     <field name="secondaryPhone" />
   </grid>
 
-  <form model="com.axelor.gst.db.Contact" title="Contact" name="contact-form">
-    <panel>
+  <form model="com.axelor.gst.db.Contact" title="Contact" name="contact-form" width="large">
+    <panel colSpan="12">
       <field name="name" />
       <field name="type" selection="gst.contact.type.select" />
       <field name="primaryEmail" />

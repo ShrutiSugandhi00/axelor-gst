@@ -9,17 +9,21 @@
 
   </grid>
 
-  <form model="com.axelor.gst.db.Company" title="Company" name="company-form">
-    <panel>
+  <form model="com.axelor.gst.db.Company" title="Company" name="company-form" width="large">
+    <panel colSpan="12">
       <field name="name" />
       <field name="logo" widget="image"/>
-      <panel-related field="contactList" />
+       <field name="address" />
+
+</panel>
+
+       <panel>
+      <panel-related field="contactList" colSpan="12" />
       <field name="gstin" />
+     </panel> <panel colSpan="12">
       <panel-related field="bankDetailsList" />
-      <field name="address" />
+
     </panel>
-
-
 
 
   </form>

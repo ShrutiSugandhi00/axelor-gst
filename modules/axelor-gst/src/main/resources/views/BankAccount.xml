@@ -13,8 +13,8 @@
   </grid>
 
   <form model="com.axelor.gst.db.BankAccount" title="BankAccount"
-    name="bankAccount-form" onNew="action.bank.account.record.type">
-    <panel>
+    name="bankAccount-form" onNew="action.bank.account.record.type" width="large">
+    <panel colSpan="12">
       <field name="bank" />
       <field name="accountNo" />
       <field name="ifsc" />

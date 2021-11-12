@@ -10,14 +10,21 @@
     <field name="model" />
   </grid>
 
-  <form model="com.axelor.gst.db.Sequence" title="Sequence" name="sequence-form">
-    <panel>
+  <form model="com.axelor.gst.db.Sequence" title="Sequence" name="sequence-form"
+    width="large" onSave="get-next-number">
+    <panel colSpan="12">
       <field name="prefix" />
       <field name="suffix" />
       <field name="padding" />
-      <field name="nextNumber" />
+      <field name="nextNumber"  readonly="true" />
       <field name="model" />
 
     </panel>
   </form>
+
+  <action-method  name="get-next-number" model="com.axelor.gst.db.Sequence">
+    <call class="com.axelor.gst.web.GstController" method="getNextNumber" />
+  </action-method>
+
+
 </object-views>
